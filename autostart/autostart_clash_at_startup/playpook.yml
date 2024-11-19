@@ -1,0 +1,4 @@
+---
+- hosts: slb_ubuntu_hosts
+  roles:
+    - autostart_clash_at_startup

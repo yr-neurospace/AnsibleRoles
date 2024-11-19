@@ -1,0 +1,4 @@
+---
+- hosts: slb_ubuntu_hosts
+  roles:
+    - cron_monitor_and_display_galaxy_jobs

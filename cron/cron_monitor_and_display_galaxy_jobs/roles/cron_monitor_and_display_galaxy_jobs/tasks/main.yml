@@ -1,0 +1,8 @@
+- name: ensure the task runs every 2 minites
+  become: true
+  become_user: root
+  become_method: su
+  ansible.builtin.cron:
+    name: "monitor and display galaxy jobs"
+    minute: "*/2"
+    job: "julia /opt/galaxy_misc/monitor_display_galaxy_jobs.jl"

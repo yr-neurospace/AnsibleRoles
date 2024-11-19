@@ -1,0 +1,12 @@
+[Unit]
+Description=The internet proxy clash for {{ ansible_ssh_user }}.
+After=network.target
+
+[Service]
+Type=simple
+User={{ ansible_ssh_user }}
+Restart=on-abort
+ExecStart=/home/{{ ansible_ssh_user }}/.config/mihomo/clash
+
+[Install]
+WantedBy={{ default_target.stdout }}
