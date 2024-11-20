@@ -1,0 +1,13 @@
+[Unit]
+Description=The NeuroBorder Shiny App for {{ ansible_ssh_user }}.
+After=network.target
+
+[Service]
+Type=simple
+User={{ ansible_ssh_user }}
+Restart=on-failure
+WorkingDirectory={{ shiny_app_directory }}
+ExecStart=/usr/bin/R -e "shiny::runApp(appDir = '.', port = 61111, launch.browser = FALSE, host = '{{ ansible_default_ipv4.address }}', quiet = TRUE)"
+
+[Install]
+WantedBy={{ default_target.stdout }}

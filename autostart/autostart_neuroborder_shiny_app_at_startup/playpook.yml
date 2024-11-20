@@ -1,0 +1,4 @@
+---
+- hosts: slb_ubuntu_hosts
+  roles:
+    - autostart_neuroborder_shiny_app_at_startup
